@@ -71,7 +71,9 @@ const projectsText = [
 ];
 
 function scrollToBottom() {
-    document.getElementById("scroll-anchor").scrollIntoView({behavior: "instant"});
+    // document.getElementById("scroll-anchor").scrollIntoView({behavior: "instant"});
+    const terminal = document.querySelector(".terminal-body");
+    terminal.scrollTop = terminal.scrollHeight;
 }
 
 function genHelp() {
@@ -360,4 +362,8 @@ input.addEventListener('input', (event) => {
 // event listener for checking enter
 input.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') handleEnter();
+});
+
+document.querySelector(".terminal-body").addEventListener("touchstart", () => {
+    input.focus();
 });
